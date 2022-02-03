@@ -2,12 +2,24 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import moment from 'moment';
 
 export default function Home() {
   const [date, setDate] = useState(new Date());
   const [formatedDate, setFormatedDate] = useState('')
+  const [data, setData] = useState({})
+  const handleData = async () => {
+    const res = await fetch('/api/data')
+    const data = await res.json()
+    setData(data)
+  }
 
+
+  useEffect(() => {
+    handleData()
+  }, []);
+
+  console.log(data)
+  
 
   useEffect(() => {
     const year = date.getFullYear()
