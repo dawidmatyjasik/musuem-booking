@@ -1,5 +1,5 @@
 const db = {
-  '01-02-2022': {
+  '03-02-2022': {
     hours: {
       '10:00': {
         limit: 30,
@@ -12,6 +12,30 @@ const db = {
         available: true,
       },
       '12:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+    },
+  },
+  '04-02-2022': {
+    hours: {
+      '10:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '11:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '12:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '13:00': {
         limit: 30,
         current: 0,
         available: true,

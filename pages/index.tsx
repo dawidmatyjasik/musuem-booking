@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useRouter } from 'next/router';
+import Button from '@mui/material/Button';
 
 export default function Home({data}) {
   const [date, setDate] = useState(new Date());
   const [formatedDate, setFormatedDate] = useState('')
+  const [hour, setHour] = useState('')
 
   const router = useRouter()
 
@@ -19,14 +21,37 @@ export default function Home({data}) {
     setFormatedDate(format)
   }
 
+  const handleSubmit = () => {
+    router.push(`${formatedDate}`);
+  }
+
+  
+
+  
+
 
   return (
-    <div className="">
+    <div className="mx-auto max-w-screen-lg text-center">
       <h1 className='font-bold p-5 text-xl'>Wybierz datę i godzinę</h1>
+      <div className='flex justify-center mb-4'>
       <Calendar
         onChange={handleDateChange}
         value={date}
       />
+{/*       {formatedDate ?(
+              <div className='flex-grow'>
+              {Object.keys(data[formatedDate].hours).map(el => (
+                <div className='flex space-x-4 mb-4'>
+                <div key={el} className='border border-black border-2 w-[20%] cursor-pointer' onClick={(e) =>  setHour(e.target.innerText)}>{el}</div>
+                {el === hour ? <button>potwierdz</button> : <></>}
+            </div>
+          ))}
+            </div>
+      ) : <></>} */}
+      </div>
+      <Button variant='contained' onClick={handleSubmit} className='bg-[#1087FF]'>Dalej</Button>
+
+
 
     </div>
   )
