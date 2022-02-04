@@ -10,9 +10,10 @@ const Menu = ({ data }) => {
 
   const handleSubmit = () => {
     if (hour) {
-      router.push(`${router.asPath}/${hour}`)
+      router.push(`${router.asPath}/${hour.replace(':', '-')}`)
     }
   }
+  console.log(Object.values(db.hours))
 
   return (
     <div className="mx-auto max-w-screen-lg p-4">
@@ -25,16 +26,20 @@ const Menu = ({ data }) => {
           <h1 className="w-full text-center">Wybierz godzinę</h1>
         </div>
         <div>
-          {Object.keys(db.hours).map((el) => (
-            <div
-              key={el}
-              className={`mx-auto mb-4 w-1/2 cursor-pointer border-2 border-black ${
-                hour === el ? 'bg-stone-400' : ''
-              }`}
-              onClick={(e) => setHour(e.target.textContent)}
-            >
-              {el}
-            </div>
+          {Object.keys(db.hours).map((el, i) => (
+            <>
+              <div
+                key={el}
+                className={`mx-auto mb-4 flex w-1/2 cursor-pointer border-2 border-black ${
+                  hour === el ? 'bg-stone-400' : ''
+                }`}
+                onClick={(e) => setHour(e.target.textContent)}
+              >
+                <span className="flex-grow">{el}</span>
+                <span>{Object.values(db.hours)[i].current}</span>/
+                <span>{Object.values(db.hours)[i].limit}</span>
+              </div>
+            </>
           ))}
         </div>
       </div>
