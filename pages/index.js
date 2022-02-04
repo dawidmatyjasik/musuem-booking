@@ -3,6 +3,8 @@ import { useState } from 'react'
 import 'react-calendar/dist/Calendar.css'
 import { useDispatch, useSelector } from 'react-redux'
 import Nav from '../components/Nav'
+import Content from '../components/Content'
+import Footer from '../components/Footer'
 import { decrement, increment } from '../features/counterSlice'
 
 export default function Home({ data }) {
@@ -15,6 +17,8 @@ export default function Home({ data }) {
   return (
     <div className="flex h-screen flex-col">
       <Nav />
+      <Content />
+      <Footer />
       {/* <Link href={'/reservation'}>Do strony rezerwacji</Link> */}
     </div>
   )
