@@ -10,10 +10,13 @@ const Menu = ({ data }) => {
 
   const handleSubmit = () => {
     if (hour) {
-      router.push(`${router.asPath}/${hour.replace(':', '-')}`)
+      router.push({
+        pathname: `${router.asPath}/${hour.replace(':', '-')}`,
+        params: { title: 'test' },
+      })
     }
   }
-  console.log(Object.values(db.hours))
+  // console.log(Object.values(db.hours))
 
   return (
     <div className="mx-auto max-w-screen-lg p-4">
@@ -21,7 +24,7 @@ const Menu = ({ data }) => {
         <div className="relative mb-4 flex items-center">
           <ArrowBackIosIcon
             className="absolute cursor-pointer"
-            onClick={() => router.back()}
+            onClick={() => router.push('/reservation')}
           />
           <h1 className="w-full text-center">Wybierz godzinę</h1>
         </div>

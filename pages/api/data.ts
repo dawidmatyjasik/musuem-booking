@@ -9,5 +9,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  res.status(200).json(db)
+  res.status(200).json({value: 0})
 }
