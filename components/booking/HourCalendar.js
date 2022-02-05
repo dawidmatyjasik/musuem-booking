@@ -9,7 +9,11 @@ const HourCalendar = () => {
   const handleClick = (e) => {
     setSelected(e.target.textContent)
   }
-  console.log(selected)
+  const handleSubmit = () => {
+    if (selected) {
+      router.push(`/${router.query.date}/${selected.replace(':', '-')}`)
+    }
+  }
 
   return (
     <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4">
@@ -77,7 +81,10 @@ const HourCalendar = () => {
         />
         <HourTile hour="20:00" left="20" full={true} />
       </div>
-      <button className="h-10 rounded border border-solid border-stone-600 px-8 py-1">
+      <button
+        className="h-10 rounded border border-solid border-stone-600 px-8 py-1"
+        onClick={handleSubmit}
+      >
         Dalej
       </button>
     </div>
