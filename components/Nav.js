@@ -8,13 +8,18 @@ const Nav = () => {
   return (
     <div className="flex  h-[10vh] min-h-[93px] items-center justify-between bg-[#F8F9FA]">
       <div className="relative mt-4 ml-4 mr-8 h-full  w-56">
-        <Image
-          src={'/img/logo.png'}
-          layout="fill"
-          objectFit="contain"
-          className="cursor-pointer"
-          onClick={() => router.push('https://www.muzeumpamieci.pl/')}
-        />
+        <a
+          href="https://www.muzeumpamieci.pl/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={'/img/logo.png'}
+            layout="fill"
+            objectFit="contain"
+            className="cursor-pointer"
+          />
+        </a>
       </div>
       <div className="mr-4 sm:hidden">
         <MenuIcon className="cursor-pointer text-4xl" />

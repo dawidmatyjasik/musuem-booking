@@ -9,7 +9,7 @@ const DateCalendar = () => {
 
   const handleSubmit = (e) => {
     if (formatedDate) {
-      router.push(`${router.asPath}/${formatedDate}`)
+      router.push(`${router.asPath}${formatedDate}`)
     }
   }
 

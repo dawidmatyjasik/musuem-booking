@@ -20,7 +20,7 @@ const HourCalendar = () => {
       <div className="relative h-[10%] w-full text-center">
         <ArrowBackIosIcon
           className="absolute left-[10%] cursor-pointer"
-          onClick={() => router.back()}
+          onClick={() => router.push('/')}
         />
         <h1 className="text-2xl">Wybierz godzinę</h1>
       </div>

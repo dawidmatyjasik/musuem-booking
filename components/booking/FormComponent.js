@@ -1,20 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
 import PublicIcon from '@mui/icons-material/Public'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/router'
+import dateFormat, { masks } from 'dateformat'
+import { i18n } from 'dateformat'
+
+i18n.dayNames = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat',
+  'Sobota',
+  'Poniedziałek',
+  'Wtorek',
+  'Środa',
+  'Czwartek',
+  'Piątek',
+  'Niedziela',
+]
+
+i18n.monthNames = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+  'Stycznia',
+  'Lutego',
+  'Marca',
+  'Kwietnia',
+  'Maja',
+  'Czerwca',
+  'Lipca',
+  'Sierpnia',
+  'Września',
+  'Października',
+  'Listopada',
+  'Grudnia',
+]
 
 const FormComponent = () => {
   const router = useRouter()
+
+  const hour = router.query.form
+  const date = router.query.date
 
   return (
     <div className="mx-auto flex flex-col items-center py-4 px-2 font-bold">
       <div className="relative mb-4 h-[10%] w-full text-center">
         <ArrowBackIosIcon
           className="absolute left-[10%] cursor-pointer"
-          onClick={() => router.back()}
+          onClick={() => router.push(`/${date}`)}
         />
         <h1 className="text-2xl">Rezerwacja</h1>
       </div>
@@ -32,7 +81,20 @@ const FormComponent = () => {
         <div className="flex flex-col lg:flex-row ">
           <div className="mr-8 mb-1 flex">
             <CalendarTodayIcon className="mr-2" />
-            <div>11:00 - 11:30, Piątek, 18 styczeń 2022r.</div>
+            <div>
+              {hour
+                ? `${hour?.replace(/-/g, ':')} - ${hour.slice(0, 2)}:30, `
+                : ''}
+              Sobota 6 Lutego 2022r.
+              {/*               {date
+                ? `${dateFormat(formatedDate, 'dddd')}
+                  ${dateFormat(formatedDate, 'd')} 
+                   ${dateFormat(formatedDate, 'mmmm')} ${dateFormat(
+                    formatedDate,
+                    'yyyy'
+                  )}r.`
+                : ''} */}
+            </div>
           </div>
           <div>
             <div className="mb-1 flex">
