@@ -1,15 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
+import { useRouter } from 'next/router'
 
 const Nav = () => {
+  const router = useRouter()
   return (
-    <div className="flex  h-[10vh] items-center justify-between bg-[#F8F9FA]">
-      <Image
-        src={'/img/logo.png'}
-        height={100}
-        width={200}
-        objectFit="contain"
-      />
+    <div className="flex  h-[10vh] min-h-[93px] items-center justify-between bg-[#F8F9FA]">
+      <div className="relative mt-4 ml-4 mr-8 h-full  w-72">
+        <Image
+          src={'/img/logo.png'}
+          layout="fill"
+          objectFit="contain"
+          className="cursor-pointer"
+          onClick={() => router.push('https://www.muzeumpamieci.pl/')}
+        />
+      </div>
       <div className="flex items-center">
         <div className="mr-4 space-x-2">
           <span className="cursor-pointer text-xl text-[#00adee] underline">

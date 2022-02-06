@@ -8,7 +8,7 @@ import { decrement, increment } from '../features/counterSlice'
 
 export default function Home() {
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <Layout>
         <CalendarComponent />
       </Layout>

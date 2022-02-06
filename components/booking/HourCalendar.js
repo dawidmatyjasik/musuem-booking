@@ -24,7 +24,13 @@ const HourCalendar = () => {
         />
         <h1 className="text-2xl">Wybierz godzinę</h1>
       </div>
-      <div className="flex max-h-[80%] w-full flex-col items-center  space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
+      <div className="flex max-h-[50vh] w-full flex-col items-center  space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
+        <HourTile
+          hour="10:00"
+          left="0"
+          onClick={handleClick}
+          selected={selected}
+        />
         <HourTile
           hour="11:00"
           left="0"

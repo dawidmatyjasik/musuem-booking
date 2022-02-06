@@ -26,9 +26,9 @@ const DateCalendar = () => {
   }
 
   return (
-    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4">
+    <div className="flex h-[100%] min-h-[70vh]  w-full flex-col items-center justify-evenly py-4">
       <h1 className="text-2xl">Wybierz datę i godzinę</h1>
-      <div className="flex items-center justify-center">
+      <div className="my-4 flex items-center justify-center">
         <Calendar onChange={handleDateChange} value={date} />
       </div>
       <button

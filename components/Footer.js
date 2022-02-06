@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className="flex h-1/5 items-center justify-evenly bg-[#343A40]">
+    <div className="flex h-1/5 min-h-[180px] items-center justify-evenly bg-[#343A40] p-4">
       <div className="flex flex-col space-y-2 text-white">
         <h3 className="text-xs">
           Muzeum Pamięci Mieszkańców Ziemi Oświęcimskiej
