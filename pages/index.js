@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import CalendarComponent from '../components/booking/DateCalendar'
 import Layout from '../components/Layout'
 import { updateFontSize } from '../features/counterSlice'
+import addHtmlClass from '../utils/addHtmlHook'
 
 export default function Home() {
   /*   const [fontSize, setFontSize] = useState('small')
