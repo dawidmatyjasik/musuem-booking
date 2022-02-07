@@ -1,10 +1,14 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import MenuIcon from '@mui/icons-material/Menu'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateFontSize } from '../features/counterSlice'
 
-const Nav = ({ handleFontSize, fontSize }) => {
+const Nav = () => {
   const router = useRouter()
+  const dispatch = useDispatch()
+  const fontSize = useSelector((state) => state.counter.fontSize)
 
   return (
     <div className="flex  h-[10vh] min-h-[93px] items-center justify-between bg-[#F8F9FA]">
@@ -29,9 +33,11 @@ const Nav = ({ handleFontSize, fontSize }) => {
         <div className="mr-4 space-x-2">
           <span
             className={`cursor-pointer text-xl ${
-              fontSize === 'small' ? 'text-[#00adee]  underline' : ''
+              fontSize === 'small' || fontSize === undefined
+                ? 'text-[#00adee]  underline'
+                : ''
             } hover:text-[#00adee]`}
-            onClick={handleFontSize}
+            onClick={(e) => dispatch(updateFontSize(e.target.dataset.size))}
             data-size="small"
           >
             A
@@ -40,7 +46,7 @@ const Nav = ({ handleFontSize, fontSize }) => {
             className={`cursor-pointer text-2xl hover:text-[#00adee] ${
               fontSize === 'medium' ? 'text-[#00adee]  underline' : ''
             }`}
-            onClick={handleFontSize}
+            onClick={(e) => dispatch(updateFontSize(e.target.dataset.size))}
             data-size="medium"
           >
             A
@@ -49,7 +55,7 @@ const Nav = ({ handleFontSize, fontSize }) => {
             className={`cursor-pointer text-3xl hover:text-[#00adee] ${
               fontSize === 'large' ? 'text-[#00adee]  underline' : ''
             }`}
-            onClick={handleFontSize}
+            onClick={(e) => dispatch(updateFontSize(e.target.dataset.size))}
             data-size="large"
           >
             A

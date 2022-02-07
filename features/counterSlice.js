@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+  fontSize: 'small',
   value: 0,
 }
 
@@ -21,14 +22,14 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload
     },
-    updateData: (state, action) => {
-      state.value += action.payload
+    updateFontSize: (state, action) => {
+      state.fontSize = action.payload
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, updateData } =
+export const { increment, decrement, incrementByAmount, updateFontSize } =
   counterSlice.actions
 
 export default counterSlice.reducer
