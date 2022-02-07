@@ -4,10 +4,10 @@ import Content from './Content'
 import Footer from './Footer'
 import Test from './Test'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, handleFontSize, fontSize }) => {
   return (
     <>
-      <Nav />
+      <Nav handleFontSize={handleFontSize} fontSize={fontSize} />
       <Content>{children}</Content>
       <Footer />
     </>

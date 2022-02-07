@@ -1,10 +1,11 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import MenuIcon from '@mui/icons-material/Menu'
 
-const Nav = () => {
+const Nav = ({ handleFontSize, fontSize }) => {
   const router = useRouter()
+
   return (
     <div className="flex  h-[10vh] min-h-[93px] items-center justify-between bg-[#F8F9FA]">
       <div className="relative mt-4 ml-4 mr-8 h-full  w-56">
@@ -26,11 +27,33 @@ const Nav = () => {
       </div>
       <div className="hidden items-center sm:flex ">
         <div className="mr-4 space-x-2">
-          <span className="cursor-pointer text-xl text-[#00adee] underline">
+          <span
+            className={`cursor-pointer text-xl ${
+              fontSize === 'small' ? 'text-[#00adee]  underline' : ''
+            } hover:text-[#00adee]`}
+            onClick={handleFontSize}
+            data-size="small"
+          >
             A
           </span>
-          <span className="cursor-pointer text-2xl">A</span>
-          <span className="cursor-pointer text-3xl">A</span>
+          <span
+            className={`cursor-pointer text-2xl hover:text-[#00adee] ${
+              fontSize === 'medium' ? 'text-[#00adee]  underline' : ''
+            }`}
+            onClick={handleFontSize}
+            data-size="medium"
+          >
+            A
+          </span>
+          <span
+            className={`cursor-pointer text-3xl hover:text-[#00adee] ${
+              fontSize === 'large' ? 'text-[#00adee]  underline' : ''
+            }`}
+            onClick={handleFontSize}
+            data-size="large"
+          >
+            A
+          </span>
         </div>
         <div className="mr-4 space-x-2">
           <span className="cursor-pointer border border-solid border-[#00adee] px-2 text-3xl">
