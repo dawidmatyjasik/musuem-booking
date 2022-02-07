@@ -16,7 +16,7 @@ const HourCalendar = () => {
   }
 
   return (
-    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 darken:text-white">
+    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 darken:text-white inverted:text-yellow-400">
       <div className="relative flex h-[10%] w-full items-center justify-center text-center">
         <ArrowBackIosIcon
           className="absolute left-[10%] top-[50%] cursor-pointer"
@@ -89,7 +89,7 @@ const HourCalendar = () => {
         <HourTile hour="20:00" left="20" full={true} />
       </div>
       <button
-        className="h-10 rounded border border-solid border-stone-600 px-8 py-1"
+        className="h-10 rounded border border-solid border-stone-600 px-8 py-1 inverted:border-yellow-400"
         onClick={handleSubmit}
       >
         Dalej

@@ -59,7 +59,7 @@ const FormComponent = () => {
   const date = router.query.date
 
   return (
-    <div className="mx-auto flex flex-col items-center py-4 px-2 font-bold darken:text-white">
+    <div className="mx-auto flex flex-col items-center py-4 px-2 font-bold darken:text-white inverted:text-yellow-400">
       <div className="relative mb-4 flex h-[10%] w-full items-center justify-center  text-center ">
         <ArrowBackIosIcon
           style={{ transform: 'translateY(-50%)' }}
@@ -70,7 +70,7 @@ const FormComponent = () => {
       </div>
       <div className="flex flex-col items-start pb-4 lg:items-center">
         <div className="flex flex-col lg:flex-row">
-          <div className=" mr-8 mb-1 flex text-[#767676] darken:text-white">
+          <div className=" mr-8 mb-1 flex text-[#767676] darken:text-white inverted:text-yellow-400">
             <AccessTimeIcon className="mr-2" />
             <div>30 min</div>
           </div>
@@ -112,38 +112,38 @@ const FormComponent = () => {
             <span className="mb-1 text-sm">Imię *</span>
             <input
               type="text"
-              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black"
+              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
             />
           </label>
           <label className="mb-4 flex w-1/2 flex-col items-start">
             <span className="mb-1 text-sm">Nazwisko *</span>
             <input
               type="text"
-              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black"
+              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
             />
           </label>
           <label className="mb-4 flex w-1/2 flex-col items-start">
             <span className="mb-1 text-sm">Email *</span>
             <input
               type="text"
-              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black"
+              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
             />
           </label>
           <label className="mb-4 flex w-1/2 flex-col items-start">
             <span className="mb-1 text-sm">Numer telefonu *</span>
             <input
               type="tel"
-              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black"
+              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
             />
           </label>
           <label className="mb-4 flex w-1/2 flex-col items-start">
             <span className="mb-1 text-sm">Ilość biletów *</span>
             <input
               type="number"
-              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black"
+              className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
             />
           </label>
-          <button className="h-10 rounded border border-solid border-stone-600 px-8 py-1">
+          <button className="h-10 rounded border border-solid border-stone-600 px-8 py-1 inverted:border-yellow-400">
             Potwierdź
           </button>
         </div>

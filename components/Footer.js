@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className="flex h-1/5 min-h-[180px] flex-col items-center justify-evenly p-4 light:bg-[#343A40] darken:border-t-[1px] darken:border-solid darken:bg-black darken:text-white sm:flex-row">
-      <div className="flex flex-col space-y-2 text-white">
+    <div className="flex h-1/5 min-h-[180px] flex-col items-center justify-evenly p-4 light:bg-[#343A40] darken:border-t-[1px] darken:border-solid darken:bg-black inverted:border-t-[1px] inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400 sm:flex-row">
+      <div className="flex flex-col space-y-2 text-white inverted:text-yellow-400 ">
         <h3 className="text-xs">
           Muzeum Pamięci Mieszkańców Ziemi Oświęcimskiej
         </h3>
@@ -15,7 +15,7 @@ const Footer = () => {
           Copyright © 2022 | Created by Magme Agency
         </h3>
       </div>
-      <h3 className="hidden text-xs text-white sm:block">
+      <h3 className="hidden text-xs text-white inverted:text-yellow-400 sm:block">
         Copyright © 2022 | Created by Magme Agency{' '}
       </h3>
     </div>
