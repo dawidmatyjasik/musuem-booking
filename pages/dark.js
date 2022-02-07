@@ -7,22 +7,24 @@ const Dark = () => {
     setMode(e.target.textContent)
   }
 
+  console.log(mode)
+
   return (
     <div
-      className={`${mode === 'dark' ? 'theme-dark' : ''} ${
-        mode === 'neon' ? 'theme-neon' : ''
-      }`}
+      className={`${mode === 'dark' ? 'theme-darken' : ''} ${
+        mode === 'inverted' ? 'theme-inverted' : ''
+      } ${mode === 'light' ? 'theme-light' : ''}`}
     >
-      <div className="neon:bg-red-600 dark:bg-yellow-600">
+      <div className="darken:bg-gray-600 light:bg-white inverted:bg-black">
         <div className="flex justify-center">
           <button className="mr-4" onClick={handleTheme}>
-            light
+            <span className="light:text-black inverted:text-white">light</span>
           </button>
           <button onClick={handleTheme} className="mr-4">
             dark
           </button>
           <button onClick={handleTheme} className="mr-4">
-            neon
+            inverted
           </button>
         </div>
       </div>

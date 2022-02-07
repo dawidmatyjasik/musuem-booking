@@ -11,6 +11,8 @@ const Layout = ({ children }) => {
   addHtmlClass(fontSize)
   addHtmlClass(theme)
 
+  // addHtmlClass(theme)
+
   return (
     <>
       <Nav />

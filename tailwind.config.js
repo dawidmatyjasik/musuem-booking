@@ -5,7 +5,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    themeVariants: ['small', 'medium', 'large'],
+    themeVariants: ['light', 'darken', 'inverted'],
   },
   plugins: [
     require('tailwind-scrollbar-hide'),

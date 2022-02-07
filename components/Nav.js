@@ -8,10 +8,9 @@ const Nav = () => {
   const dispatch = useDispatch()
   const fontSize = useSelector((state) => state.counter.fontSize)
   const theme = useSelector((state) => state.counter.theme)
-  console.log(theme)
 
   return (
-    <div className="flex  h-[10vh] min-h-[93px] items-center justify-between bg-[#F8F9FA]">
+    <div className="flex  h-[10vh] min-h-[93px] items-center justify-between light:bg-[#F8F9FA] darken:border-b-[1px] darken:border-solid darken:bg-black darken:text-white">
       <div className="relative mt-4 ml-4 mr-8 h-full  w-56">
         <a
           href="https://www.muzeumpamieci.pl/"
@@ -65,21 +64,27 @@ const Nav = () => {
           <span
             className="cursor-pointer border border-solid border-[#00adee] px-2 text-3xl"
             data-theme="light"
-            onClick={(e) => dispatch(updateTheme(e.target.dataset.theme))}
+            onClick={(e) =>
+              dispatch(updateTheme(`theme-${e.target.dataset.theme}`))
+            }
           >
             A
           </span>
           <span
             className="cursor-pointer bg-black px-2 text-3xl text-white"
-            data-theme="dark"
-            onClick={(e) => dispatch(updateTheme(e.target.dataset.theme))}
+            data-theme="darken"
+            onClick={(e) =>
+              dispatch(updateTheme(`theme-${e.target.dataset.theme}`))
+            }
           >
             A
           </span>
           <span
             className="cursor-pointer bg-black px-2 text-3xl text-[#FFFF00]"
             data-theme="inverted"
-            onClick={(e) => dispatch(updateTheme(e.target.dataset.theme))}
+            onClick={(e) =>
+              dispatch(updateTheme(`theme-${e.target.dataset.theme}`))
+            }
           >
             A
           </span>{' '}

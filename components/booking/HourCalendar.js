@@ -16,15 +16,16 @@ const HourCalendar = () => {
   }
 
   return (
-    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4">
-      <div className="relative h-[10%] w-full text-center">
+    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 inverted:bg-slate-500">
+      <div className="relative flex h-[10%] w-full items-center justify-center text-center">
         <ArrowBackIosIcon
-          className="absolute left-[10%] cursor-pointer"
+          className="absolute left-[10%] top-[50%] cursor-pointer"
+          style={{ transform: 'translateY(-50%)' }}
           onClick={() => router.push('/')}
         />
         <h1 className="text-2xl">Wybierz godzinę</h1>
       </div>
-      <div className="flex max-h-[50vh] w-full flex-col items-center  space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
+      <div className="my-4 flex max-h-[50vh] w-full flex-col  items-center space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
         <HourTile
           hour="10:00"
           left="0"

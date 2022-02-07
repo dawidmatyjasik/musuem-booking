@@ -27,13 +27,21 @@ const DateCalendar = () => {
 
   return (
     <div className="flex h-[100%] min-h-[70vh]  w-full flex-col items-center justify-evenly py-4">
-      <h1 className="text-2xl">Wybierz datę i godzinę</h1>
+      <h1 className="text-2xl light:text-black darken:text-white">
+        Wybierz datę i godzinę
+      </h1>
       <div className="my-4 flex items-center justify-center">
-        <Calendar onChange={handleDateChange} value={date} />
+        <Calendar
+          onChange={handleDateChange}
+          value={date}
+          className="light:bg-white light:text-black darken:bg-black darken:text-white"
+          locale="pl"
+          onActiveDateChange={() => console.log('test')}
+        />
       </div>
       <button
         onClick={handleSubmit}
-        className="rounded border border-solid border-stone-600 px-8 py-1"
+        className="rounded border border-solid border-stone-600 px-8 py-1 light:text-black darken:text-white"
       >
         Dalej
       </button>

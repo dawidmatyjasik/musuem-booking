@@ -60,9 +60,10 @@ const FormComponent = () => {
 
   return (
     <div className="mx-auto flex flex-col items-center py-4 px-2 font-bold">
-      <div className="relative mb-4 h-[10%] w-full text-center">
+      <div className="relative mb-4 flex h-[10%] w-full items-center justify-center  text-center">
         <ArrowBackIosIcon
-          className="absolute left-[10%] cursor-pointer"
+          style={{ transform: 'translateY(-50%)' }}
+          className="absolute left-[10%] top-[50%] cursor-pointer"
           onClick={() => router.push(`/${date}`)}
         />
         <h1 className="text-2xl">Rezerwacja</h1>

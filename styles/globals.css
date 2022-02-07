@@ -3,15 +3,20 @@
 @tailwind utilities;
 
 /* .theme-small * {
-  @apply text-[1rem];
+  @apply bg-red-600;
 }
 .theme-medium * {
-  @apply text-[1.15rem];
+  @apply bg-blue-600;
 }
 .theme-large * {
-  @apply text-[1.15rem];
+  @apply bg-yellow-600;
 }
  */
+.theme-inverted * {
+  /* @apply bg-red-500; */
+}
+.theme-dark * {
+}
 
 .small {
   font-size: 16px;
