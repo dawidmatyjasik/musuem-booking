@@ -7,8 +7,9 @@ import { useSelector } from 'react-redux'
 
 const Layout = ({ children }) => {
   const fontSize = useSelector((state) => state.counter.fontSize)
+  const theme = useSelector((state) => state.counter.theme)
   addHtmlClass(fontSize)
-  console.log(fontSize)
+  addHtmlClass(theme)
 
   return (
     <>

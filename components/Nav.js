@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateFontSize } from '../features/counterSlice'
+import { updateFontSize, updateTheme } from '../features/counterSlice'
 
 const Nav = () => {
-  const router = useRouter()
   const dispatch = useDispatch()
   const fontSize = useSelector((state) => state.counter.fontSize)
+  const theme = useSelector((state) => state.counter.theme)
+  console.log(theme)
 
   return (
     <div className="flex  h-[10vh] min-h-[93px] items-center justify-between bg-[#F8F9FA]">
@@ -62,13 +62,25 @@ const Nav = () => {
           </span>
         </div>
         <div className="mr-4 space-x-2">
-          <span className="cursor-pointer border border-solid border-[#00adee] px-2 text-3xl">
+          <span
+            className="cursor-pointer border border-solid border-[#00adee] px-2 text-3xl"
+            data-theme="light"
+            onClick={(e) => dispatch(updateTheme(e.target.dataset.theme))}
+          >
             A
           </span>
-          <span className="cursor-pointer bg-black px-2 text-3xl text-white">
+          <span
+            className="cursor-pointer bg-black px-2 text-3xl text-white"
+            data-theme="dark"
+            onClick={(e) => dispatch(updateTheme(e.target.dataset.theme))}
+          >
             A
           </span>
-          <span className="cursor-pointer bg-black px-2 text-3xl text-[#FFFF00]">
+          <span
+            className="cursor-pointer bg-black px-2 text-3xl text-[#FFFF00]"
+            data-theme="inverted"
+            onClick={(e) => dispatch(updateTheme(e.target.dataset.theme))}
+          >
             A
           </span>{' '}
         </div>
