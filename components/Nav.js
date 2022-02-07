@@ -62,7 +62,7 @@ const Nav = () => {
         </div>
         <div className="mr-4 space-x-2">
           <span
-            className="cursor-pointer border border-solid border-[#00adee] px-2 text-3xl"
+            className={`cursor-pointer px-2 text-3xl hover:underline light:border light:border-solid light:border-[#00adee] darken:bg-white darken:text-black`}
             data-theme="light"
             onClick={(e) =>
               dispatch(updateTheme(`theme-${e.target.dataset.theme}`))
@@ -71,7 +71,7 @@ const Nav = () => {
             A
           </span>
           <span
-            className="cursor-pointer bg-black px-2 text-3xl text-white"
+            className="cursor-pointer bg-black px-2 text-3xl text-white hover:underline darken:border darken:border-white"
             data-theme="darken"
             onClick={(e) =>
               dispatch(updateTheme(`theme-${e.target.dataset.theme}`))
@@ -80,7 +80,7 @@ const Nav = () => {
             A
           </span>
           <span
-            className="cursor-pointer bg-black px-2 text-3xl text-[#FFFF00]"
+            className="cursor-pointer bg-black px-2 text-3xl text-[#FFFF00] hover:underline"
             data-theme="inverted"
             onClick={(e) =>
               dispatch(updateTheme(`theme-${e.target.dataset.theme}`))

@@ -7,7 +7,7 @@ const HourTile = ({ left, hour, full, onClick, selected }) => {
         full ? 'bg-[#d1d2d3]' : 'bg-[#F8F9FA]'
       } ${full ? '' : 'hover:bg-[#E9ECEF]'}  drop-shadow-md ${
         selected === hour ? 'bg-[#e3e6e9]' : ''
-      }`}
+      } darken:border-l-white darken:text-black`}
       onClick={onClick}
     >
       <div className="flex h-full w-full items-center p-1">

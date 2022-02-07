@@ -16,7 +16,7 @@ const HourCalendar = () => {
   }
 
   return (
-    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 inverted:bg-slate-500">
+    <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 darken:text-white">
       <div className="relative flex h-[10%] w-full items-center justify-center text-center">
         <ArrowBackIosIcon
           className="absolute left-[10%] top-[50%] cursor-pointer"
