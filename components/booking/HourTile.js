@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HourTile = ({ left, hour, full, onClick, selected }) => {
+const HourTile = ({ limit, current, hour, full, onClick, selected }) => {
   return (
     <div
       className={`flex h-16 min-h-[64px] w-4/5 cursor-pointer items-center rounded-lg  border-l-4 border-l-red-600 ${
@@ -14,7 +14,9 @@ const HourTile = ({ left, hour, full, onClick, selected }) => {
         <span className="flex h-full flex-grow items-center text-xl">
           {hour}
         </span>
-        <span className="text-xl">{left}/20</span>
+        <span className="text-xl">
+          {current}/{limit}
+        </span>
       </div>
     </div>
   )
