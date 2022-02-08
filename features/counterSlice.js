@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   fontSize: 'small',
-  theme: 'light',
+  theme: 'theme-light',
 }
 
 export const counterSlice = createSlice({
