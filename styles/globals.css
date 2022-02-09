@@ -99,6 +99,7 @@
 .theme-inverted .react-calendar__navigation button:enabled:hover,
 .theme-inverted .react-calendar__navigation button:enabled:focus {
   background-color: rgba(255, 255, 0, 0.7);
+  color: black;
 }
 .theme-inverted .react-calendar__tile--active {
   background: rgba(255, 255, 0, 4) !important;
