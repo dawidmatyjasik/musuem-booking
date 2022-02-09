@@ -20,7 +20,7 @@ const HourCalendar = () => {
   Object.keys(db[router.query.date].hours).forEach((el, i) => {
     console.log(db[router.query.date].hours[el])
   }) */
-
+  console.log()
   return (
     <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 darken:text-white inverted:text-yellow-400">
       <div className="relative flex h-[10%] w-full items-center justify-center text-center">
@@ -43,7 +43,7 @@ const HourCalendar = () => {
             />
           ))
         ) : (
-          <></>
+          <h1>Brak dostępnych godzin</h1>
         )}
       </div>
       <button

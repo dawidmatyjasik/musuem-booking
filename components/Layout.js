@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 const Layout = ({ children }) => {
   const fontSize = useSelector((state) => state.counter.fontSize)
   const theme = useSelector((state) => state.counter.theme)
+  const data = useSelector((state) => state.counter.db)
   addHtmlClass(fontSize)
   addHtmlClass(theme)
 

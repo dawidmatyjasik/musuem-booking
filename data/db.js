@@ -1,4 +1,4 @@
-export const db = {
+export let db = {
   '08-02-2022': {
     hours: {
       '10:00': {
@@ -36,6 +36,64 @@ export const db = {
         available: true,
       },
       '13:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '14:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '15:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+    },
+  },
+  '10-02-2022': {
+    hours: {
+      '10:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '11:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '12:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+    },
+  },
+  '11-02-2022': {
+    hours: {
+      '10:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '11:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '12:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '13:00': {
+        limit: 30,
+        current: 0,
+        available: true,
+      },
+      '14:00': {
         limit: 30,
         current: 0,
         available: true,

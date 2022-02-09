@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Calendar from 'react-calendar'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
 const DateCalendar = () => {
   const [date, setDate] = useState(new Date())
@@ -12,6 +14,17 @@ const DateCalendar = () => {
       router.push(`${router.asPath}${formatedDate}`)
     }
   }
+
+  useEffect(() => {
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    const format = `${day < 10 ? `0${day}` : day}-${
+      month < 10 ? `0${month}` : month
+    }-${year}`
+
+    setFormatedDate(format)
+  }, [])
 
   const handleDateChange = (nextValue) => {
     setDate(nextValue)
@@ -34,8 +47,17 @@ const DateCalendar = () => {
         <Calendar
           onChange={handleDateChange}
           value={date}
-          className="light:bg-white light:text-black darken:bg-black darken:text-white inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
+          className={`calendar-dark light:bg-white light:text-black darken:bg-black darken:text-white inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400`}
           locale="pl"
+          minDate={new Date()}
+          maxDate={new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000)}
+          tileDisabled={({ date }) =>
+            date.getDay() === 0 || date.getDay() === 6
+          }
+          prevLabel={<ArrowBackIosIcon />}
+          nextLabel={<ArrowForwardIosIcon />}
+          // showDoubleView={false}
+          // showNavigation={false}
         />
       </div>
       <button
