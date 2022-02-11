@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateFontSize, updateTheme } from '../features/counterSlice'
+import BurgerMenu from './BurgerMenu'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -10,7 +11,7 @@ const Nav = () => {
   const theme = useSelector((state) => state.counter.theme)
 
   return (
-    <div className="flex  h-[10vh] min-h-[93px] items-center justify-between light:bg-[#F8F9FA] darken:border-b-[1px] darken:border-solid darken:bg-black darken:text-white inverted:border-b-[1px] inverted:border-yellow-400 inverted:bg-black">
+    <div className="relative  flex h-[10vh] min-h-[93px] items-center justify-between light:bg-[#F8F9FA] darken:border-b-[1px] darken:border-solid darken:bg-black darken:text-white inverted:border-b-[1px] inverted:border-yellow-400 inverted:bg-black">
       <div className="relative mt-4 ml-4 mr-8 h-full  w-56">
         <a
           href="https://www.muzeumpamieci.pl/"
@@ -25,8 +26,9 @@ const Nav = () => {
           />
         </a>
       </div>
-      <div className="mr-4 sm:hidden">
+      <div className="mr-4 sm:hidden" id="outer-container">
         <MenuIcon className="cursor-pointer text-4xl inverted:bg-yellow-400" />
+        {/* <BurgerMenu /> */}
       </div>
       <div className="hidden items-center sm:flex ">
         <div className="mr-4 space-x-2">
