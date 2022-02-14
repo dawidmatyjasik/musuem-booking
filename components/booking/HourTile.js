@@ -1,8 +1,6 @@
 import React from 'react'
 
 const HourTile = ({ limit, current, hour, full, onClick, selected }) => {
-  console.log(current)
-
   return (
     <>
       {current === limit ? (

@@ -4,7 +4,15 @@ export let db = {
       '10-00': {
         limit: 30,
         current: 0,
-        users: [],
+        users: [
+          {
+            name: 'Dawid',
+            surname: 'Spisak',
+            mail: 'dawidspisak@gmail.com',
+            phone: '695656849',
+            count: '2',
+          },
+        ],
       },
       '11-00': {
         limit: 30,

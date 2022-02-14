@@ -85,19 +85,28 @@ const FormComponent = () => {
   }, [])
 
   const handleClick = async () => {
-    const response = await fetch(`/api/data/${date}/${hour}`, {
-      method: 'PUT',
-      body: JSON.stringify({ number }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    const data = await response.json()
-    console.log(data)
-    fetchData()
-    setNumber(0)
-    alert('Zarezerwowano miejsce')
-    router.push('/')
+    if (
+      data[date]?.hours[hour]?.current + number <=
+      data[date]?.hours[hour]?.limit
+    ) {
+      const response = await fetch(`/api/data/${date}/${hour}`, {
+        method: 'PUT',
+        body: JSON.stringify({ number }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      const data = await response.json()
+      console.log(data)
+
+      fetchData()
+      setNumber(0)
+      alert('Zarezerwowano miejsce')
+      router.push('/')
+    } else {
+      alert('Nie ma wystarczająco miejsca')
+      setNumber(0)
+    }
   }
 
   return (
