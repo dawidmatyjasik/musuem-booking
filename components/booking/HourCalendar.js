@@ -5,6 +5,7 @@ import HourTile from './HourTile'
 import db from '../../data/db'
 
 const HourCalendar = () => {
+  const [data, setData] = useState({})
   const router = useRouter()
   const [selected, setSelected] = useState(null)
   const handleClick = (e) => {
@@ -16,11 +17,20 @@ const HourCalendar = () => {
     }
   }
 
+  const fetchData = async () => {
+    const response = await fetch('/api/data')
+    const data = await response.json()
+    setData(data)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   /*   console.log(Object.keys(db[router.query.date].hours))
   Object.keys(db[router.query.date].hours).forEach((el, i) => {
     console.log(db[router.query.date].hours[el])
   }) */
-  console.log()
   return (
     <div className="text-evenly flex h-full w-full flex-col items-center justify-evenly py-4 darken:text-white inverted:text-yellow-400">
       <div className="relative flex h-[10%] w-full items-center justify-center text-center">
@@ -32,12 +42,12 @@ const HourCalendar = () => {
         <h1 className="text-2xl">Wybierz godzinę</h1>
       </div>
       <div className="my-4 flex max-h-[50vh] w-full flex-col  items-center space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
-        {db[router.query.date] ? (
-          Object.keys(db[router.query.date].hours).map((el, i) => (
+        {data[router.query.date] ? (
+          Object.keys(data[router.query.date].hours).map((el, i) => (
             <HourTile
               hour={el}
-              limit={db[router.query.date]?.hours[el].limit}
-              current={db[router.query.date]?.hours[el].current}
+              limit={data[router.query.date]?.hours[el].limit}
+              current={data[router.query.date]?.hours[el].current}
               onClick={handleClick}
               selected={selected}
             />

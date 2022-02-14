@@ -59,10 +59,10 @@ i18n.monthNames = [
 const FormComponent = () => {
   const router = useRouter()
   const [formatedDate, setFormatedDate] = useState('')
+  const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const hour = router?.query?.form?.replace('-', ':')
   const date = router.query.date
-  const dispatch = useDispatch()
 
   useEffect(() => {
     if (loading) {
@@ -77,18 +77,23 @@ const FormComponent = () => {
     }
   }, [date])
 
-  const reducerDb = useSelector((state) => state.counter.db)
-  console.log(reducerDb)
+  const fetchData = async () => {
+    const response = await fetch('/api/data')
+    const data = await response.json()
+    setData(data)
+  }
 
-  const handleClick = () => {
-    console.log(reducerDb)
-    // dispatch(updateData(11))
-    // db['08-02-2022'].hours['10:00'].current = 1
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  const handleClick = async () => {
+    console.log(data)
   }
 
   return (
     <div className="mx-auto flex flex-col items-center py-4 px-2 font-bold darken:text-white inverted:text-yellow-400">
-      {db[date]?.hours[hour] ? (
+      {data[date]?.hours[hour] ? (
         <>
           {' '}
           <div className="relative mb-4 flex h-[10%] w-full items-center justify-center  text-center ">
