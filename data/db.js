@@ -4,17 +4,17 @@ export let db = {
       '10-00': {
         limit: 30,
         current: 0,
-        users: {},
+        users: [],
       },
       '11-00': {
         limit: 30,
         current: 0,
-        users: {},
+        users: [],
       },
       '12-00': {
         limit: 30,
         current: 0,
-        users: {},
+        users: [],
       },
     },
   },

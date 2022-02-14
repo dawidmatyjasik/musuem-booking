@@ -7,8 +7,8 @@ export default function handler(req, res) {
     res.status(200).json(db[dateId].hours[hours])
   } else if (req.method === 'PUT') {
     const selectedComment = db[dateId].hours[hours]
-    const count = req.body.count
-    selectedComment.current += count
+    const number = req.body.number
+    selectedComment.current += number
 
     res.status(200).json(selectedComment)
   }

@@ -7,10 +7,6 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/router'
 import dateFormat, { masks } from 'dateformat'
 import { i18n } from 'dateformat'
-import db from '../../data/db'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { updateData } from '../../features/counterSlice'
 
 i18n.dayNames = [
   'Sun',
@@ -61,6 +57,7 @@ const FormComponent = () => {
   const [formatedDate, setFormatedDate] = useState('')
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
+  const [number, setNumber] = useState(0)
   const hour = router?.query?.form
   const date = router.query.date
 
@@ -88,11 +85,19 @@ const FormComponent = () => {
   }, [])
 
   const handleClick = async () => {
-    /*     const response = await fetch('/api/db')
+    const response = await fetch(`/api/data/${date}/${hour}`, {
+      method: 'PUT',
+      body: JSON.stringify({ number }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
     const data = await response.json()
-    console.log(data) */
-    // dispatch(updateData(11))
-    // console.log(db['11-02-2022'].hours['11:00'].current)
+    console.log(data)
+    fetchData()
+    setNumber(0)
+    alert('Zarezerwowano miejsce')
+    router.push('/')
   }
 
   return (
@@ -181,6 +186,8 @@ const FormComponent = () => {
                 <input
                   type="number"
                   className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
+                  value={number}
+                  onChange={(e) => setNumber(+e.target.value)}
                 />
               </label>
               <button
