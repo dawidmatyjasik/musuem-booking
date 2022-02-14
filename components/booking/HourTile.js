@@ -6,13 +6,13 @@ const HourTile = ({ limit, current, hour, full, onClick, selected }) => {
       className={`flex h-16 min-h-[64px] w-4/5 cursor-pointer items-center rounded-lg  border-l-4 border-l-red-600 ${
         full ? 'bg-[#d1d2d3]' : 'bg-[#F8F9FA]'
       } ${full ? '' : 'hover:bg-[#E9ECEF]'}  drop-shadow-md ${
-        selected === hour ? 'bg-[#e3e6e9]' : ''
+        selected === hour?.replace(/-/g, ':') ? 'bg-[#e3e6e9]' : ''
       } darken:border-l-white darken:text-black inverted:border inverted:border-yellow-400 inverted:border-l-yellow-400 inverted:bg-black inverted:text-yellow-400`}
       onClick={onClick}
     >
       <div className="flex h-full w-full items-center p-1">
         <span className="flex h-full flex-grow items-center text-xl">
-          {hour}
+          {hour?.replace(/-/g, ':')}
         </span>
         <span className="text-xl">
           {current}/{limit}

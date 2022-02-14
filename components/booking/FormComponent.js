@@ -61,7 +61,7 @@ const FormComponent = () => {
   const [formatedDate, setFormatedDate] = useState('')
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
-  const hour = router?.query?.form?.replace('-', ':')
+  const hour = router?.query?.form
   const date = router.query.date
 
   useEffect(() => {
@@ -88,7 +88,11 @@ const FormComponent = () => {
   }, [])
 
   const handleClick = async () => {
-    console.log(data)
+    /*     const response = await fetch('/api/db')
+    const data = await response.json()
+    console.log(data) */
+    // dispatch(updateData(11))
+    // console.log(db['11-02-2022'].hours['11:00'].current)
   }
 
   return (
