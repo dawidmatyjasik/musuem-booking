@@ -12,7 +12,6 @@ const Nav = () => {
   const dispatch = useDispatch()
   const fontSize = useSelector((state) => state.counter.fontSize)
   const theme = useSelector((state) => state.counter.theme)
-  console.log(theme)
 
   return (
     <div className="relative  flex h-[10vh]  items-center justify-between light:bg-[#F8F9FA] darken:border-b-[1px] darken:border-solid darken:bg-black darken:text-white inverted:border-b-[1px] inverted:border-yellow-400 inverted:bg-black">
