@@ -63,25 +63,26 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 .theme-darken .react-calendar__tile--active {
-  background: rgba(255, 255, 255, 0.7) !important;
-  color: black !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
 }
 .theme-darken .react-calendar__tile:enabled:hover,
 .theme-darken .react-calendar__tile:enabled:focus {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
 }
 /* ---------------------------------------------- */
 
-.theme-inverted .calendar-dark {
+.theme-inverted {
   background-color: black !important;
 }
-.theme-inverted .calendar-dark .react-calendar__tile:disabled {
+.theme-inverted .react-calendar__tile:disabled {
   background-color: rgb(0, 0, 0) !important;
   color: rgba(255, 255, 0, 0.144);
 }
-.theme-inverted .calendar-dark .react-calendar__tile--active:enabled:hover,
-.theme-inverted .calendar-dark .react-calendar__tile--active:enabled:focus {
-  background-color: rgba(255, 255, 0, 0.5) !important;
+.theme-inverted .react-calendar__tile--active:enabled:hover,
+.theme-inverted .react-calendar__tile--active:enabled:focus {
+  background-color: #facc15 !important;
   /* color: white; */
 }
 
@@ -102,7 +103,7 @@
   color: black;
 }
 .theme-inverted .react-calendar__tile--active {
-  background: rgba(255, 255, 0, 4) !important;
+  background: #facc15 !important;
   color: black !important;
 }
 .theme-inverted .react-calendar__tile:enabled:hover,
