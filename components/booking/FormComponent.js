@@ -7,6 +7,8 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/router'
 import dateFormat, { masks } from 'dateformat'
 import { i18n } from 'dateformat'
+import { useForm } from 'react-hook-form'
+import InputTile from './FormComponents/InputTile'
 
 i18n.dayNames = [
   'Sun',
@@ -54,6 +56,7 @@ i18n.monthNames = [
 
 const FormComponent = () => {
   const router = useRouter()
+  const { register } = useForm()
   const [formatedDate, setFormatedDate] = useState('')
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
@@ -162,43 +165,12 @@ const FormComponent = () => {
           <div className="w-full border-t-[1px] border-solid border-[rgba(0,0,0,.1)] pt-4 text-center">
             <h2 className="pb-2 text-lg">Wprowadź dane</h2>
             <div className="flex flex-col items-center">
-              <label className="mb-4 flex w-1/2 flex-col items-start">
-                <span className="mb-1 text-sm">Imię *</span>
-                <input
-                  type="text"
-                  className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
-                />
-              </label>
-              <label className="mb-4 flex w-1/2 flex-col items-start">
-                <span className="mb-1 text-sm">Nazwisko *</span>
-                <input
-                  type="text"
-                  className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
-                />
-              </label>
-              <label className="mb-4 flex w-1/2 flex-col items-start">
-                <span className="mb-1 text-sm">Email *</span>
-                <input
-                  type="text"
-                  className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
-                />
-              </label>
-              <label className="mb-4 flex w-1/2 flex-col items-start">
-                <span className="mb-1 text-sm">Numer telefonu *</span>
-                <input
-                  type="tel"
-                  className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
-                />
-              </label>
-              <label className="mb-4 flex w-1/2 flex-col items-start">
-                <span className="mb-1 text-sm">Ilość biletów *</span>
-                <input
-                  type="number"
-                  className="w-full rounded-md border-[1px] border-[rgb(0,0,0,.2)] py-2 darken:text-black inverted:border inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400"
-                  value={number}
-                  onChange={(e) => setNumber(+e.target.value)}
-                />
-              </label>
+              <InputTile value="Imię" type="text" />
+              <InputTile value="Nazwisko *" type="text" />
+              <InputTile value="Email *" type="text" />
+              <InputTile value="Numer telefonu *" type="text" />
+              <InputTile value="Ilość biletów *" type="number" />
+
               <button
                 className="h-10 rounded border border-solid border-stone-600 px-8 py-1 inverted:border-yellow-400"
                 onClick={handleClick}
