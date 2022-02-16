@@ -23,32 +23,32 @@ export let db = {
       '10-00': {
         limit: 30,
         current: 0,
-        available: true,
+        users: [],
       },
       '11-00': {
         limit: 30,
         current: 0,
-        available: true,
+        users: [],
       },
       '12-00': {
         limit: 30,
         current: 0,
-        available: true,
+        users: [],
       },
       '13-00': {
         limit: 30,
         current: 0,
-        available: true,
+        users: [],
       },
       '14-00': {
         limit: 30,
         current: 0,
-        available: true,
+        users: [],
       },
       '15-00': {
         limit: 30,
         current: 0,
-        available: true,
+        users: [],
       },
     },
   },

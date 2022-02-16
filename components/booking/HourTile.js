@@ -14,7 +14,7 @@ const HourTile = ({ limit, current, hour, full, onClick, selected }) => {
           } darken:border-l-white darken:text-black inverted:border inverted:border-yellow-400 inverted:border-l-yellow-400 inverted:bg-black inverted:text-yellow-400`}
           onClick={onClick}
         >
-          <div className="flex h-full w-full items-center p-1">
+          <div className="flex h-full w-full items-center rounded-lg p-1 ">
             <span className="flex h-full flex-grow items-center text-xl">
               {hour?.replace(/-/g, ':')}
             </span>

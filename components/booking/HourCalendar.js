@@ -41,6 +41,7 @@ const HourCalendar = () => {
         {data[router.query.date] ? (
           Object.keys(data[router.query.date].hours).map((el, i) => (
             <HourTile
+              key={el}
               hour={el}
               limit={data[router.query.date]?.hours[el].limit}
               current={data[router.query.date]?.hours[el].current}
