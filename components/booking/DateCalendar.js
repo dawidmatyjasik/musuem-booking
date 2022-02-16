@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Calendar from 'react-calendar'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import { Button } from '@mui/material'
 
 const DateCalendar = () => {
   const [date, setDate] = useState(new Date())
@@ -60,12 +61,12 @@ const DateCalendar = () => {
           // showNavigation={false}
         />
       </div>
-      <button
+      <Button
         onClick={handleSubmit}
         className="rounded border border-solid border-stone-600 px-8 py-1 light:text-black darken:text-white inverted:border-yellow-400 inverted:text-yellow-400"
       >
         Dalej
-      </button>
+      </Button>
     </div>
   )
 }

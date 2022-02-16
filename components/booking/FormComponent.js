@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import InputTile from './FormComponents/InputTile'
 import FormHeader from './FormComponents/FormHeader'
+import { Button } from '@mui/material'
 
 const FormComponent = () => {
   const router = useRouter()
@@ -112,11 +113,13 @@ const FormComponent = () => {
                 register={{ ...register('number', { required: true, max: 5 }) }}
               />
 
-              <input
-                className="h-10 cursor-pointer rounded border border-solid border-stone-600 px-8 py-1 inverted:border-yellow-400"
+              <Button
+                className="rounded border border-solid border-stone-600 px-8 py-1 light:text-black darken:text-white inverted:border-yellow-400 inverted:text-yellow-400"
                 // onClick={handleClick}
                 type="submit"
-              />
+              >
+                Prześlij
+              </Button>
             </form>
           </div>
         </>

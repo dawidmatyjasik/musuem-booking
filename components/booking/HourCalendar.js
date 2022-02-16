@@ -3,6 +3,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/router'
 import HourTile from './HourTile'
 import db from '../../data/db'
+import { Button } from '@mui/material'
 
 const HourCalendar = () => {
   const [data, setData] = useState({})
@@ -53,12 +54,12 @@ const HourCalendar = () => {
           <h1>Brak dostępnych godzin</h1>
         )}
       </div>
-      <button
-        className="h-10 rounded border border-solid border-stone-600 px-8 py-1 inverted:border-yellow-400"
+      <Button
+        className="rounded border border-solid border-stone-600 px-8 py-1 light:text-black darken:text-white inverted:border-yellow-400 inverted:text-yellow-400"
         onClick={handleSubmit}
       >
         Dalej
-      </button>
+      </Button>
     </div>
   )
 }
