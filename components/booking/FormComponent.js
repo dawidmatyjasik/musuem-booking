@@ -1,81 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import AccessTimeIcon from '@mui/icons-material/AccessTime'
-import LocationOnIcon from '@mui/icons-material/LocationOn'
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday'
-import PublicIcon from '@mui/icons-material/Public'
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/router'
-import dateFormat, { masks } from 'dateformat'
-import { i18n } from 'dateformat'
 import { useForm } from 'react-hook-form'
 import InputTile from './FormComponents/InputTile'
-
-i18n.dayNames = [
-  'Sun',
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat',
-  'Sobota',
-  'Poniedziałek',
-  'Wtorek',
-  'Środa',
-  'Czwartek',
-  'Piątek',
-  'Niedziela',
-]
-
-i18n.monthNames = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-  'Stycznia',
-  'Lutego',
-  'Marca',
-  'Kwietnia',
-  'Maja',
-  'Czerwca',
-  'Lipca',
-  'Sierpnia',
-  'Września',
-  'Października',
-  'Listopada',
-  'Grudnia',
-]
+import FormHeader from './FormComponents/FormHeader'
 
 const FormComponent = () => {
   const router = useRouter()
   const { register } = useForm()
-  const [formatedDate, setFormatedDate] = useState('')
   const [data, setData] = useState({})
-  const [loading, setLoading] = useState(true)
   const [number, setNumber] = useState(0)
   const hour = router?.query?.form
   const date = router.query.date
-
-  useEffect(() => {
-    if (loading) {
-      const day = date?.slice(0, 2)
-      const month = date?.slice(3, 5)
-      const year = date?.slice(6, 10)
-
-      if (day && month && year) {
-        setFormatedDate(`${month}/${day}/${year}`)
-        setLoading(false)
-      }
-    }
-  }, [date])
 
   const fetchData = async () => {
     const response = await fetch('/api/data')
@@ -116,60 +51,20 @@ const FormComponent = () => {
     <div className="mx-auto flex flex-col items-center py-4 px-2 font-bold darken:text-white inverted:text-yellow-400">
       {data[date]?.hours[hour] ? (
         <>
-          {' '}
-          <div className="relative mb-4 flex h-[10%] w-full items-center justify-center  text-center ">
-            <ArrowBackIosIcon
-              style={{ transform: 'translateY(-50%)' }}
-              className="absolute left-[10%] top-[50%] cursor-pointer"
-              onClick={() => router.push(`/${date}`)}
-            />
-            <h1 className="text-2xl">Rezerwacja</h1>
-          </div>
-          <div className="flex flex-col items-start pb-4 lg:items-center">
-            <div className="flex flex-col lg:flex-row">
-              <div className=" mr-8 mb-1 flex text-[#767676] darken:text-white inverted:text-yellow-400">
-                <AccessTimeIcon className="mr-2" />
-                <div>30 min</div>
-              </div>
-              <div className="mb-1 flex">
-                <LocationOnIcon className="mr-2" />
-                <div>Maksymiliana Kolbego 2A, 32-600 Oświęcim</div>
-              </div>
-            </div>
-            <div className="flex flex-col lg:flex-row ">
-              <div className="mr-8 mb-1 flex">
-                <CalendarTodayIcon className="mr-2" />
-                <div>
-                  {hour
-                    ? `${hour?.replace(/-/g, ':')} - ${hour.slice(0, 2)}:30, `
-                    : ''}
-                  {/* Sobota 6 Lutego 2022r. */}
-                  {!loading
-                    ? `${dateFormat(formatedDate, 'dddd')}
-                  ${dateFormat(formatedDate, 'd')} 
-                   ${dateFormat(formatedDate, 'mmmm')} ${dateFormat(
-                        formatedDate,
-                        'yyyy'
-                      )}r.`
-                    : ''}
-                </div>
-              </div>
-              <div>
-                <div className="mb-1 flex">
-                  <PublicIcon className="mr-2" />
-                  <div>Muzeum Pamięci Mieszkańców Ziemi Oświęcimskiej</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <FormHeader />
           <div className="w-full border-t-[1px] border-solid border-[rgba(0,0,0,.1)] pt-4 text-center">
             <h2 className="pb-2 text-lg">Wprowadź dane</h2>
             <div className="flex flex-col items-center">
-              <InputTile value="Imię" type="text" />
-              <InputTile value="Nazwisko *" type="text" />
-              <InputTile value="Email *" type="text" />
-              <InputTile value="Numer telefonu *" type="text" />
-              <InputTile value="Ilość biletów *" type="number" />
+              <InputTile name="Imię" type="text" />
+              <InputTile name="Nazwisko *" type="text" />
+              <InputTile name="Email *" type="text" />
+              <InputTile name="Numer telefonu *" type="text" />
+              <InputTile
+                name="Ilość biletów *"
+                type="number"
+                value={number}
+                onChange={(e) => setNumber(+e.target.value)}
+              />
 
               <button
                 className="h-10 rounded border border-solid border-stone-600 px-8 py-1 inverted:border-yellow-400"
