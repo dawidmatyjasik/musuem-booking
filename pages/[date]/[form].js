@@ -1,6 +1,6 @@
 import React from 'react'
-import FormComponent from '../../components/booking/FormComponent'
-import Layout from '../../components/Layout'
+import FormComponent from '../../components/FormCalendar/FormComponent'
+import Layout from '../../components/Layout/Layout'
 
 const Hours = () => {
   return (

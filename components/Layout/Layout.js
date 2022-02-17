@@ -1,8 +1,8 @@
 import React from 'react'
-import Nav from './Nav'
+import Nav from '../Nav/Nav'
 import Content from './Content'
-import Footer from './Footer'
-import addHtmlClass from '../utils/addHtmlHook'
+import Footer from '../Footer/Footer'
+import addHtmlClass from '../../utils/addHtmlHook'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 

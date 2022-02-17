@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
-import InputTile from './FormComponents/InputTile'
-import FormHeader from './FormComponents/FormHeader'
+import InputTile from './InputTile'
+import FormHeader from './FormHeader'
 import { Button } from '@mui/material'
 
 const FormComponent = () => {
   const router = useRouter()
   const { register, handleSubmit } = useForm()
   const [data, setData] = useState({})
-  const [name, setName] = useState('')
+  /*   const [name, setName] = useState('')
   const [surname, setSurname] = useState('')
   const [mail, setMail] = useState('')
   const [phone, setPhone] = useState('')
-  const [number, setNumber] = useState(0)
+  const [number, setNumber] = useState(0) */
   const hour = router?.query?.form
   const date = router.query.date
 

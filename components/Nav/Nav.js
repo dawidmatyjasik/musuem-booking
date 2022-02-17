@@ -1,12 +1,10 @@
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import MenuIcon from '@mui/icons-material/Menu'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateFontSize, updateTheme } from '../features/counterSlice'
-import lightLogo from '../public/img/logo.png'
-import darkLogo from '../public/img/logo-black.png'
-import invertedLogo from '../public/img/logo-yellow.png'
-import BurgerMenu from './BurgerMenu'
+import { updateFontSize, updateTheme } from '../../features/counterSlice'
+import lightLogo from '../../public/img/logo.png'
+import darkLogo from '../../public/img/logo-black.png'
+import invertedLogo from '../../public/img/logo-yellow.png'
 
 const Nav = () => {
   const dispatch = useDispatch()

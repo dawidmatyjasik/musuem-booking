@@ -1,6 +1,6 @@
 import React from 'react'
-import HourCalendar from '../../components/booking/HourCalendar'
-import Layout from '../../components/Layout'
+import HourCalendar from '../../components/HourCalendar/HourCalendar'
+import Layout from '../../components/Layout/Layout'
 
 const Hours = () => {
   return (

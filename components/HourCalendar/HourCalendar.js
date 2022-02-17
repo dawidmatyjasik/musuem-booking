@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import { useRouter } from 'next/router'
 import HourTile from './HourTile'
-import db from '../../data/db'
 import { Button } from '@mui/material'
 
 const HourCalendar = () => {
