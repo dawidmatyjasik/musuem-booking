@@ -9,6 +9,8 @@ const HourCalendar = () => {
   const router = useRouter()
   const [selected, setSelected] = useState(null)
   const [hidden, setHidden] = useState(false)
+  const [loading, setLoading] = useState(true)
+
   const handleClick = (e) => {
     setSelected(e.target.textContent)
   }
@@ -19,9 +21,11 @@ const HourCalendar = () => {
   }
 
   const fetchData = async () => {
+    setLoading(true)
     const response = await fetch('/api/data')
     const data = await response.json()
     setData(data)
+    setLoading(false)
   }
 
   useEffect(() => {
@@ -57,21 +61,27 @@ const HourCalendar = () => {
         <h1 className="text-2xl">Wybierz godzinę</h1>
       </div>
       <div className="my-4 flex max-h-[50vh] w-full flex-col  items-center space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
-        {data[router.query.date] && !hidden ? (
-          Object.keys(data[router.query.date].hours).map((el, i) => {
-            return (
-              <HourTile
-                key={el}
-                hour={el}
-                limit={data[router.query.date]?.hours[el].limit}
-                current={data[router.query.date]?.hours[el].current}
-                onClick={handleClick}
-                selected={selected}
-              />
-            )
-          })
+        {loading ? (
+          <h1 className="font-bold">Ładowanie...</h1>
         ) : (
-          <h1>Brak dostępnych godzin</h1>
+          <>
+            {data[router.query.date] && !hidden ? (
+              Object.keys(data[router.query.date].hours).map((el, i) => {
+                return (
+                  <HourTile
+                    key={el}
+                    hour={el}
+                    limit={data[router.query.date]?.hours[el].limit}
+                    current={data[router.query.date]?.hours[el].current}
+                    onClick={handleClick}
+                    selected={selected}
+                  />
+                )
+              })
+            ) : (
+              <h1>Brak dostępnych godzin</h1>
+            )}
+          </>
         )}
       </div>
       <Button
