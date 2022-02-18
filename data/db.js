@@ -1,9 +1,9 @@
 export let db = {
-  '17-02-2022': {
+  '18-02-2022': {
     hours: {
       '10-00': {
         limit: 30,
-        current: 27,
+        current: 0,
         users: [],
       },
       '11-00': {
@@ -33,7 +33,7 @@ export let db = {
       },
     },
   },
-  '18-02-2022': {
+  '21-02-2022': {
     hours: {
       '10-00': {
         limit: 30,
@@ -63,40 +63,6 @@ export let db = {
       '15-00': {
         limit: 30,
         current: 30,
-        users: [],
-      },
-    },
-  },
-  '21-02-2022': {
-    hours: {
-      '10-00': {
-        limit: 30,
-        current: 0,
-        users: [],
-      },
-      '11-00': {
-        limit: 30,
-        current: 0,
-        users: [],
-      },
-      '12-00': {
-        limit: 30,
-        current: 0,
-        users: [],
-      },
-      '13-00': {
-        limit: 30,
-        current: 0,
-        users: [],
-      },
-      '14-00': {
-        limit: 30,
-        current: 0,
-        users: [],
-      },
-      '15-00': {
-        limit: 30,
-        current: 0,
         users: [],
       },
     },

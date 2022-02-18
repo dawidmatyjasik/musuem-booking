@@ -46,12 +46,10 @@ const FormComponent = () => {
       console.log(data)
 
       fetchData()
-      setNumber(0)
       alert('Zarezerwowano miejsce')
       router.push('/')
     } else {
       alert('Nie ma wystarczająco miejsca')
-      setNumber(0)
     }
   }
 
