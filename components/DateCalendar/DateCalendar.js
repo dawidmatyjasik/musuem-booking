@@ -47,7 +47,7 @@ const DateCalendar = () => {
       <div className="my-4 flex items-center justify-center">
         <Calendar
           onChange={handleDateChange}
-          value={date}
+          value={date.getDay() === 0 || date.getDay() === 6 ? null : date}
           className={`calendar-dark light:bg-white light:text-black darken:bg-black darken:text-white inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400`}
           locale="pl"
           minDate={new Date()}
