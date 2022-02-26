@@ -21,11 +21,13 @@ const HourCalendar = () => {
   }
 
   const fetchData = async () => {
+    const abortCont = new AbortController()
     setLoading(true)
-    const response = await fetch('/api/data')
+    const response = await fetch('/api/data', { signal: abortCont.signal })
     const data = await response.json()
     setData(data)
     setLoading(false)
+    return () => abortCont.abort()
   }
 
   useEffect(() => {
