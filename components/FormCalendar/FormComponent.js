@@ -7,7 +7,11 @@ import { Button } from '@mui/material'
 
 const FormComponent = ({ data }) => {
   const router = useRouter()
-  const { register, handleSubmit } = useForm()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
   const hour = router?.query?.form
   const date = router.query.date
 
@@ -49,40 +53,49 @@ const FormComponent = ({ data }) => {
               <InputTile
                 name="Imię"
                 type="text"
-                register={{ ...register('name', { required: true }) }}
+                register={{
+                  ...register('name', { required: 'Podaj imię' }),
+                }}
+                error={errors?.name?.message}
               />
               <InputTile
                 name="Nazwisko *"
                 type="text"
-                register={{ ...register('surname', { required: true }) }}
+                register={{
+                  ...register('surname', { required: 'Podaj nazwisko' }),
+                }}
+                error={errors?.surname?.message}
               />
               <InputTile
                 name="Email *"
                 type="email"
                 register={{
                   ...register('mail', {
-                    required: true,
+                    required: 'Podaj mail',
                     pattern: /^\S+@\S+$/i,
                   }),
                 }}
+                error={errors?.mail?.message}
               />
               <InputTile
                 name="Numer telefonu *"
                 type="tel"
                 register={{
                   ...register('phone', {
-                    required: true,
+                    required: 'Podaj numer telefonu',
                     minLength: 9,
                     maxLength: 9,
                   }),
                 }}
+                error={errors?.phone?.message}
               />
               <InputTile
                 name="Ilość biletów *"
                 type="number"
                 register={{
-                  ...register('number', { required: true }),
+                  ...register('number', { required: 'Wybierz liczbę biletów' }),
                 }}
+                error={errors?.number?.message}
               />
 
               <Button

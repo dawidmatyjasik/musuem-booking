@@ -12,7 +12,7 @@ const Nav = () => {
   const theme = useSelector((state) => state.counter.theme)
 
   return (
-    <div className="relative  flex h-[10vh]  items-center justify-between light:bg-[#F8F9FA] darken:border-b-[1px] darken:border-solid darken:bg-black darken:text-white inverted:border-b-[1px] inverted:border-yellow-400 inverted:bg-black">
+    <div className="relative  flex h-[10vh]  min-h-[96px] items-center justify-between light:bg-[#F8F9FA] darken:border-b-[1px] darken:border-solid darken:bg-black darken:text-white inverted:border-b-[1px] inverted:border-yellow-400  inverted:bg-black">
       <div className="relative mt-4 ml-4 mr-8 h-full  w-56">
         <a
           href="https://www.muzeumpamieci.pl/"
