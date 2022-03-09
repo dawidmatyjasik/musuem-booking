@@ -51,7 +51,7 @@ const DateCalendar = () => {
           className={`calendar-dark light:bg-white light:text-black darken:bg-black darken:text-white inverted:border-yellow-400 inverted:bg-black inverted:text-yellow-400`}
           locale="pl"
           minDate={new Date()}
-          maxDate={new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000)}
+          maxDate={new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000)}
           tileDisabled={({ date }) =>
             date.getDay() === 0 || date.getDay() === 6
           }
