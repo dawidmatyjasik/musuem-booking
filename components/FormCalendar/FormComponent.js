@@ -39,11 +39,7 @@ const FormComponent = () => {
     ) {
       const response = await fetch(`/api/data/${date}/${hour}`, {
         method: 'PUT',
-        body: JSON.stringify({
-          number: +user.number,
-          user: user,
-          recived: false,
-        }),
+        body: JSON.stringify({ number: +user.number, user: user }),
         headers: {
           'Content-Type': 'application/json',
         },

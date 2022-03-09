@@ -1,8 +1,12 @@
 import React from 'react'
 
-const InputTile = ({ name, type, register }) => {
+const InputTile = ({ name, type, register, hidden }) => {
   return (
-    <label className="mb-4 flex w-1/2 flex-col items-start">
+    <label
+      className={`mb-4 flex w-1/2 flex-col items-start ${
+        hidden ? 'hidden' : ''
+      }`}
+    >
       <span className="mb-1 text-sm">{name}</span>
       <input
         type={type}

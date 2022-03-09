@@ -4,35 +4,20 @@ import { useRouter } from 'next/router'
 import HourTile from './HourTile'
 import { Button } from '@mui/material'
 
-const HourCalendar = () => {
-  const [data, setData] = useState({})
+const HourCalendar = ({ data }) => {
   const router = useRouter()
   const [selected, setSelected] = useState(null)
   const [hidden, setHidden] = useState(false)
-  const [loading, setLoading] = useState(true)
 
   const handleClick = (e) => {
     setSelected(e.target.textContent)
   }
+
   const handleSubmit = () => {
     if (selected) {
       router.push(`/${router.query.date}/${selected.replace(':', '-')}`)
     }
   }
-
-  const fetchData = async () => {
-    const abortCont = new AbortController()
-    setLoading(true)
-    const response = await fetch('/api/data', { signal: abortCont.signal })
-    const data = await response.json()
-    setData(data)
-    setLoading(false)
-    return () => abortCont.abort()
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, [])
 
   useEffect(() => {
     if (data[router.query.date]) {
@@ -63,27 +48,21 @@ const HourCalendar = () => {
         <h1 className="text-2xl">Wybierz godzinę</h1>
       </div>
       <div className="my-4 flex max-h-[50vh] w-full flex-col  items-center space-y-2 overflow-x-hidden overflow-y-scroll scrollbar-hide">
-        {loading ? (
-          <h1 className="font-bold">Ładowanie...</h1>
+        {data[router.query.date] && !hidden ? (
+          Object.keys(data[router.query.date].hours).map((el, i) => {
+            return (
+              <HourTile
+                key={el}
+                hour={el}
+                limit={data[router.query.date]?.hours[el].limit}
+                current={data[router.query.date]?.hours[el].current}
+                onClick={handleClick}
+                selected={selected}
+              />
+            )
+          })
         ) : (
-          <>
-            {data[router.query.date] && !hidden ? (
-              Object.keys(data[router.query.date].hours).map((el, i) => {
-                return (
-                  <HourTile
-                    key={el}
-                    hour={el}
-                    limit={data[router.query.date]?.hours[el].limit}
-                    current={data[router.query.date]?.hours[el].current}
-                    onClick={handleClick}
-                    selected={selected}
-                  />
-                )
-              })
-            ) : (
-              <h1>Brak dostępnych godzin</h1>
-            )}
-          </>
+          <h1>Brak dostępnych godzin</h1>
         )}
       </div>
       <Button
