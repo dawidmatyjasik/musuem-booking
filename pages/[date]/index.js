@@ -16,22 +16,26 @@ const Hours = ({ data }) => {
 export default Hours
 
 export async function getStaticPaths() {
+  const res = await fetch(`http://localhost:3000/api/mongo`)
+  const data = await res.json()
+
+  const paths = data.map((el) => {
+    return {
+      params: {
+        date: `${el.date}`,
+      },
+    }
+  })
+
   return {
-    paths: [
-      {
-        params: { date: '10-03-2022' },
-      },
-      {
-        params: { date: '11-03-2022' },
-      },
-    ],
+    paths,
     fallback: false,
   }
 }
 
 export const getStaticProps = async (context) => {
   const { params } = context
-  const res = await fetch(`http://localhost:3000/api/mongo/10-03-2022`)
+  const res = await fetch(`http://localhost:3000/api/mongo/${params.date}`)
 
   const data = await res.json()
 
