@@ -8,8 +8,6 @@ import { Button } from '@mui/material'
 const FormComponent = ({ date, hour }) => {
   const router = useRouter()
 
-  console.log(date)
-
   const {
     register,
     handleSubmit,
@@ -18,7 +16,7 @@ const FormComponent = ({ date, hour }) => {
 
   const handleClick = async (user) => {
     if (hour.current + +user.number <= hour.limit) {
-      const response = await fetch(`/api/data/${date.date}/${hour.hour}`, {
+      const response = await fetch(`/api/mongo/${date.date}/${hour.hour}`, {
         method: 'PUT',
         body: JSON.stringify({ number: +user.number, user: user }),
         headers: {
