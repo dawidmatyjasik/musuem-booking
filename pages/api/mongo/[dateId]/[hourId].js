@@ -9,5 +9,7 @@ export default async function handler(req, res) {
 
   const filteredHour = filteredDate.hours.find((el) => el.hour === hourId)
 
-  res.json(filteredHour)
+  if (req.method === 'GET') {
+    res.status(200).json(filteredHour)
+  }
 }
