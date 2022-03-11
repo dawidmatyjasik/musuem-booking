@@ -5,6 +5,6 @@ export default async function handler(req, res) {
   const data = await db.collection('dates').find({}).toArray()
 
   if (req.method === 'GET') {
-    res.status(200).json({ test: 'name' })
+    res.status(200).json(data)
   }
 }

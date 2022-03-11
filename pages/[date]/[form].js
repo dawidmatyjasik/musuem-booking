@@ -22,9 +22,12 @@ export async function getStaticPaths() {
 
   const res = await fetch(`${server}/api/mongo`)
   const data = await res.json()
+
+  const json = JSON.parse(JSON.stringify(data))
+
   let paths = []
 
-  data.map((el) => {
+  json.map((el) => {
     el.hours.map((item) => {
       paths.push({
         params: {
@@ -55,8 +58,11 @@ export const getStaticProps = async (context) => {
   const date = await res.json()
   const hour = await res2.json()
 
+  const json1 = JSON.parse(JSON.stringify(date))
+  const json2 = JSON.parse(JSON.stringify(hour))
+
   return {
-    props: { date, hour },
+    props: { date: json1, hour: json2 },
   }
 }
 
