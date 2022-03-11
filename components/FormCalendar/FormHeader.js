@@ -52,18 +52,16 @@ i18n.monthNames = [
   'Grudnia',
 ]
 
-const FormHeader = () => {
+const FormHeader = ({ date, hour }) => {
   const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [formatedDate, setFormatedDate] = useState('')
-  const hour = router?.query?.form
-  const date = router.query.date
 
   useEffect(() => {
     if (loading) {
-      const day = date?.slice(0, 2)
-      const month = date?.slice(3, 5)
-      const year = date?.slice(6, 10)
+      const day = date.date?.slice(0, 2)
+      const month = date.date?.slice(3, 5)
+      const year = date.date?.slice(6, 10)
 
       if (day && month && year) {
         setFormatedDate(`${month}/${day}/${year}`)
@@ -78,7 +76,7 @@ const FormHeader = () => {
         <ArrowBackIosIcon
           style={{ transform: 'translateY(-50%)' }}
           className="absolute left-[10%] top-[50%] cursor-pointer"
-          onClick={() => router.push(`/${date}`)}
+          onClick={() => router.push(`/${date.date}`)}
         />
         <h1 className="text-2xl">Rezerwacja</h1>
       </div>
@@ -97,9 +95,10 @@ const FormHeader = () => {
           <div className="mr-8 mb-1 flex">
             <CalendarTodayIcon className="mr-2" />
             <div>
-              {hour
-                ? `${hour?.replace(/-/g, ':')} - ${hour.slice(0, 2)}:30, `
-                : ''}
+              {`${hour.hour?.replace(/-/g, ':')} - ${hour.hour.slice(
+                0,
+                2
+              )}:30, `}
               {!loading
                 ? `${dateFormat(formatedDate, 'dddd')}
           ${dateFormat(formatedDate, 'd')} 
