@@ -5,8 +5,6 @@ import HourTile from './HourTile'
 import { Button } from '@mui/material'
 
 const HourCalendar = ({ data }) => {
-  console.log(data)
-
   const router = useRouter()
   const [selected, setSelected] = useState(null)
   const [hidden, setHidden] = useState(false)
