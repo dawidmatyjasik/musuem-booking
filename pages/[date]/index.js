@@ -16,7 +16,12 @@ const Hours = ({ data }) => {
 export default Hours
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://musuem-booking.vercel.app/api/mongo`)
+  const dev = process.env.NODE_ENV !== 'production'
+  const server = dev
+    ? 'http://localhost:3000'
+    : 'https://musuem-booking.vercel.app'
+
+  const res = await fetch(`${server}/api/mongo`)
   const data = await res.json()
 
   const paths = data.map((el) => {
@@ -34,10 +39,13 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = async (context) => {
+  const dev = process.env.NODE_ENV !== 'production'
+  const server = dev
+    ? 'http://localhost:3000'
+    : 'https://musuem-booking.vercel.app'
+
   const { params } = context
-  const res = await fetch(
-    `https://musuem-booking.vercel.app/api/mongo/${params.date}`
-  )
+  const res = await fetch(`${server}/api/mongo/${params.date}`)
 
   const data = await res.json()
 
@@ -47,7 +55,7 @@ export const getStaticProps = async (context) => {
 }
 
 /* export const getServerSideProps = async () => {
-  const response = await fetch('http://musuem-booking.vercel.app/api/data')
+  const response = await fetch('http://localhost:3000/api/data')
   const data = await response.json()
   return { props: { data } }
 } */
