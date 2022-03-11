@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
   const filteredHour = filteredDate.hours.find((el) => el.hour === hourId)
   if (req.method === 'GET') {
-    res.status(200).json(filteredHour)
+    res.status(200).json({ test: 'name' })
   } else if (req.method === 'PUT') {
     const number = req.body.number
     const user = req.body.user
