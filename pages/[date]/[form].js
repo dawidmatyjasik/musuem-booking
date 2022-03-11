@@ -2,11 +2,11 @@ import React from 'react'
 import FormComponent from '../../components/FormCalendar/FormComponent'
 import Layout from '../../components/Layout/Layout'
 
-const Hours = ({ data }) => {
+const Hours = ({ date, hour }) => {
   return (
     <div className="flex h-screen flex-col">
       <Layout>
-        <FormComponent data={data} />
+        <FormComponent date={date} hour={hour} data={date} />
       </Layout>
     </div>
   )
@@ -38,14 +38,16 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async (context) => {
   const { params } = context
-  const res = await fetch(
+  const res2 = await fetch(
     `http://localhost:3000/api/mongo/${params.date}/${params.form}`
   )
+  const res = await fetch(`http://localhost:3000/api/mongo/${params.date}`)
 
-  const data = await res.json()
+  const date = await res.json()
+  const hour = await res2.json()
 
   return {
-    props: { data },
+    props: { date, hour },
   }
 }
 
