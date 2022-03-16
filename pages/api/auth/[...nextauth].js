@@ -6,7 +6,7 @@ export default NextAuth({
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text', placeholder: 'dawid' },
+        username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
       authorize(credentials, req) {
@@ -17,13 +17,13 @@ export default NextAuth({
         } */
 
         if (
-          credentials.username === 'dawid' &&
-          credentials.password === 'test'
+          credentials.username === 'mpm' &&
+          credentials.password === 'admin'
         ) {
           return {
             id: 2,
-            name: 'Dawid',
-            email: 'dawid@gmail.com',
+            name: 'Admin',
+            email: 'mpm@gmail.com',
           }
         }
 
@@ -52,8 +52,8 @@ export default NextAuth({
       return session
     },
   },
-  secret: 'test',
+  secret: 'mpm',
   jwt: {
-    secret: 'test',
+    secret: 'mpm',
   },
 })
