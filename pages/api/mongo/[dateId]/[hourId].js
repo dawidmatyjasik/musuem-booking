@@ -15,14 +15,14 @@ export default async function handler(req, res) {
     const user = req.body.user
     filteredHour.current += number
     filteredHour.users.push(user)
-    /*     console.log(dateId)
+    console.log(dateId)
 
-            db.collection('dates').updateOne(
-      { date: dateId,  },
+    db.collection('dates').updateOne(
+      { date: dateId },
       {
         $set: { date: '20-03-2022' },
       }
-    ) */
+    )
 
     // filteredHour.insertOne({})
     res.status(200).json(filteredHour)
